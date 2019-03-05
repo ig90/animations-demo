@@ -1,3 +1,7 @@
-.list-group-item {
-  color: black;
+.list-group-item:first-child {
+  margin-top: 20px;
+}
+
+.list-group-item:hover {
+  background-color: #F5F5F5;
 }
