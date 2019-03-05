@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-todos',
+  selector: 'todos',
   templateUrl: './todos.component.html',
-  styleUrls: ['./todos.component.scss']
+  styleUrls: ['./todos.component.css'],
 })
-export class TodosComponent implements OnInit {
+export class TodosComponent {
+  items: any[] = [
+    'task 1',
+    'task 2',
+    'task 3'];
 
-  constructor() { }
-
-  ngOnInit() {
+  addItem(input: HTMLInputElement) {
+    this.items.splice(0, 0, input.value);
+    input.value = '';
   }
 
+  removeItem(item) {
+    let index = this.items.indexOf(item);
+    this.items.splice(index, 1);
+  }
 }
