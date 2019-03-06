@@ -26,4 +26,11 @@ export class TodosComponent {
     let index = this.items.indexOf(item);
     this.items.splice(index, 1);
   }
+
+  animationStarted($event) {
+    console.log($event);
+  }
+  animationDone($event) {
+    console.log($event);
+  }
 }
