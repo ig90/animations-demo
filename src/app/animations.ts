@@ -10,3 +10,13 @@ export let fade = trigger('fade', [
          animate( 500, style({ opacity: 0}) )
      ])
    ]);
+export let slide = trigger('slide', [
+    // state('void', style({transform: 'translateX(-20px)'})),
+     transition(':enter', [
+        style({transform: 'translateX(-20px)'}),
+        animate(500)
+     ]),
+     transition(':leave', [
+         animate('0.5s ease-in', style({transform: 'translateX(100%)'}))
+     ])
+   ]);
