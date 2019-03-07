@@ -1,34 +1,18 @@
 import { Component, Input } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import { expandCollapse } from './zippy.component.animations';
 
 @Component({
   selector: 'app-zippy',
   templateUrl: './zippy.component.html',
   styleUrls: ['./zippy.component.css'],
   animations: [
-    trigger('expandCollapse', [
-      state('collapsed', style({
-          height: 0,
-          paddingTop: 0,
-          paddingBottom: 0,
-      })),
-      // state('expanded', style({
-      //     height: '*',
-      //     padding: '*',
-      //     overflow: 'hidden'
-      // })),
-      transition('collapsed => expanded', [
-          animate('300ms ease-out')
-      ]),
-      transition('expanded => collapsed', [
-        animate('300ms ease-in')
-    ])
-  ])
+    expandCollapse
   ]
 })
 export class ZippyComponent  {
   @Input('title') title: string;
   isExpanded: boolean;
+
   toggle() {
     this.isExpanded = !this.isExpanded;
   }
